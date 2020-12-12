@@ -9,7 +9,7 @@ let people = [
 	["Alex North", "co", "ss", "ph1", "fp", "fa"],
 	["Alex Petrov", "ph", "ss", "sp", "ma", "ch2"],
 	["Ammar", "ps", "ch", "ph1", "ma", "ss"],
-	["Andrez", "ph", "ss", "ma1", "pe", "ss"],
+	["Andrej", "ph", "ss", "ma1", "pe", "ss"],
 	["Anehan", "fp", "gg", "ss", "ph", "fa"],
 	["Anish", "pd", "ma", "ss", "ph", "ec"],
 	["Aniya", "ss", "ps", "bi", "ss", "ch1"],
@@ -293,43 +293,28 @@ document.getElementById("colorselector").ondragstart = function (e) {
 }
 
 document.ondrop = function(e) {
-	if (e.target.id !== "colorselector" && e.target.id !== "textselector") {
+	if (e.target.tagName === "TD") {
 		let variable;
 		let type;
 		if (e.dataTransfer.getData("text") === "fill") {
 			type = "colorselector";
-			if (e.target.tagName !== "TD") {
-				if (e.target.id === "name") {
-					variable = "--name";
-				}
-				else {
-					variable = "--background";
-				}
+			if (e.target.classList[0] === undefined) {
+				variable = "--header";
+			}
+			else if ((e.target.innerText === "SS" || e.target.innerText === "") && (document.getElementById("name").value !== "")) {
+				variable = "--bg";
 			}
 			else {
-				if (e.target.classList[0] === undefined) {
-					variable = "--header";
-				}
-				else if ((e.target.innerText === "SS" || e.target.innerText === "") && (document.getElementById("name").value !== "")) {
-					variable = "--bg";
-				}
-				else {
-					variable = "--"+e.target.classList[0];
-				}
+				variable = "--"+e.target.classList[0];
 			}
 		}
 		else {
 			type = "textselector";
-			if (e.target.id === "name") {
-				variable = "--nametext";
+			if (e.target.classList[0] === undefined) {
+				variable = "--headertext";
 			}
-			else if (e.target.tagName === "TD") {
-				if (e.target.classList[0] === undefined) {
-					variable = "--headertext";
-				}
-				else {
-					variable = "--td";
-				}
+			else {
+				variable = "--td";
 			}
 		}
 		document.documentElement.style.setProperty(variable, document.getElementById(type).value);

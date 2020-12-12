@@ -1,5 +1,5 @@
 html {
-	background-color: var(--background);
+	background-color: lightgrey;
 	font-family: calibri;
 	cursor: default;
 	position: absolute;
@@ -38,6 +38,7 @@ td {
 	top: -20px;
 	left: 60px;
 	text-align: center;
+	background-color: white;
 }
 
 #fill {
@@ -70,8 +71,6 @@ td {
 
 #name {
 	width: 200px;
-	background-color: var(--name);
-	color: var(--nametext);
 	margin-left: 190px;
 }
 
@@ -85,10 +84,25 @@ td {
 	--a4: #e06666;
 	--a5: #6aa84f;
 	--bg: #b7b7b7;
-	--background: #d3d3d3;
-	--name: #ffffff;
 	--td: #000000;
 	--nametext: #000000;
+}
+
+#box .tooltiptext {
+	visibility: hidden;
+	width: 190px;
+	background-color: white;
+	color: black;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+	position: absolute;
+	left: 197px;
+	z-index: 1;
+}
+
+#box:hover .tooltiptext {
+  visibility: visible;
 }
 
 .lunch {

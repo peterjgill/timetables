@@ -1,0 +1,56 @@
+body {
+	background-color: lightgrey;
+	font-family: calibri;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td {
+	border: 1px solid black;
+	width: 100px;
+	height: 19.6px;
+	text-align: center;
+}
+
+#name {
+	width: 200px;
+}
+
+.lunch {
+	background-color: black;
+}
+
+.header {
+	background-color: black;
+	color: white;
+}
+
+.a1 {
+	background-color: #b9a1ff;
+}
+
+.a2 {
+	background-color: #ffc832;
+}
+
+.a3 {
+	background-color: #6fa8dc;
+}
+
+.a4 {
+	background-color: #e06666;
+}
+
+.a5 {
+	background-color: #6aa84f;
+}
+
+.ft {
+	background-color: #b5ead7;
+}
+
+.p3 {
+	border-bottom: 23px solid black;
+}

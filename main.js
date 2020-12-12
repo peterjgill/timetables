@@ -320,3 +320,14 @@ document.ondrop = function(e) {
 		document.documentElement.style.setProperty(variable, document.getElementById(type).value);
 	}
 }
+
+function prevent (e) {
+	if (e.preventDefault) {
+		e.preventDefault();
+	}
+    else {
+		e.stop();
+	}
+    e.returnValue = false;
+    e.stopPropagation();
+}

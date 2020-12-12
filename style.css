@@ -1,56 +1,125 @@
-body {
-	background-color: lightgrey;
+html {
+	background-color: var(--background);
 	font-family: calibri;
+	cursor: default;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+div {
+	width: 510px;
+}
+
+span {
+	position: absolute;
 }
 
 table {
 	border-collapse: collapse;
+	background-color: var(--bg);
+	color: var(--td);
+	white-space: nowrap;
 }
 
 td {
-	border: 1px solid black;
+	border: 1px solid var(--header);
 	width: 100px;
 	height: 19.6px;
 	text-align: center;
+	background-color: inherit;
+}
+
+#box{
+	border: 1px solid black;
+	width: 140px;
+	height: 70px;
+	top: -20px;
+	left: 60px;
+	text-align: center;
+}
+
+#fill {
+	top: 15px;
+	left: 65px;
+}
+
+#text {
+	top: 15px;
+	left: 128px;
+}
+
+#colorselector, #textselector {
+	border: none;
+	background-color: transparent;
+	width: 40px;
+	height: 40px;
+	top: 5px;
+	position:absolute;
+	cursor: grab;
+}
+
+#colorselector {
+	left: 85px;
+}
+
+#textselector {
+	left: 155px;
 }
 
 #name {
 	width: 200px;
+	background-color: var(--name);
+	color: var(--nametext);
+	margin-left: 190px;
+}
+
+:root {
+	--header: #000000;
+	--headertext: #ffffff;
+	--ft: #b5ead7;
+	--a1: #b9a1ff;
+	--a2: #ffc832;
+	--a3: #6fa8dc;
+	--a4: #e06666;
+	--a5: #6aa84f;
+	--bg: #b7b7b7;
+	--background: #d3d3d3;
+	--name: #ffffff;
+	--td: #000000;
+	--nametext: #000000;
 }
 
 .lunch {
-	background-color: black;
+	background-color: var(--header);
 }
 
 .header {
-	background-color: black;
-	color: white;
+	background-color: var(--header);
+	color: var(--headertext);
 }
 
 .a1 {
-	background-color: #b9a1ff;
+	background-color: var(--a1);
 }
 
 .a2 {
-	background-color: #ffc832;
+	background-color: var(--a2);
 }
 
 .a3 {
-	background-color: #6fa8dc;
+	background-color: var(--a3);
 }
 
 .a4 {
-	background-color: #e06666;
+	background-color: var(--a4);
 }
 
 .a5 {
-	background-color: #6aa84f;
+	background-color: var(--a5);
 }
 
 .ft {
-	background-color: #b5ead7;
-}
-
-.p3 {
-	border-bottom: 23px solid black;
+	background-color: var(--ft);
 }

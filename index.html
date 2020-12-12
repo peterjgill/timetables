@@ -1,37 +1,44 @@
 <!doctype html>
-<html>
+<html ondragover="event.preventDefault()">
 <head>
 	<title>Timetables</title>
 	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
+	<span id="box">Customise:</span>
+	<input id="colorselector" type="color" draggable="true" value="#8800ff">
+	<input id="textselector" type="color" draggable="true" value="#0055ee">
+	<span id="fill">Fill</span>
+	<span id="text">Text</span>
 	<center>
-	<br><br><select id="name">
-		<option value="" hidden></option>
+	<select id="name">
+		<option value="" hidden>Select name...</option>
 	</select><br><br><br>
-	<table>
+	<div><table>
 		<tr class="header">	<td>Monday A</td>		<td>Tuesday A</td>		<td>Wednesday A</td>	<td>Thursday A</td>		<td>Friday A</td></tr>
 		<tr>				<td class="a5"></td>	<td class="a5"></td>	<td class="a3"></td>	<td class="a3"></td>	<td class="a5"></td></tr>
 		<tr>				<td class="a2"></td>	<td class="a3"></td>	<td class="a1"></td>	<td class="a3"></td>	<td class="a5"></td></tr>
-		<tr class="p3">		<td class="a2"></td>	<td class="a4"></td>	<td class="a1"></td>	<td class="a5"></td>	<td class="a2"></td></tr>
+		<tr>				<td class="a2"></td>	<td class="a4"></td>	<td class="a1"></td>	<td class="a5"></td>	<td class="a2"></td></tr>
+		<tr class="lunch">	<td></td>				<td></td>				<td></td>				<td></td>				<td></td>			</tr>
 		<tr>				<td class="a3"></td>	<td class="a4"></td>	<td class="a2"></td>	<td class="a4"></td>	<td class="a1"></td></tr>
 		<tr>				<td class="a5"></td>	<td class="a2"></td>	<td class="a4"></td>	<td class="a4"></td>	<td class="a1"></td></tr>
 		<tr class="lunch">	<td></td>				<td></td>				<td></td>				<td></td>				<td></td>			</tr>
-		<tr>				<td class="a5"></td>	<td class="a1"></td>	<td></td>				<td class="a2"></td>	<td class="a3"></td></tr>
-		<tr>				<td class="a4"></td>	<td class="a1"></td>	<td></td>				<td class="a2"></td>	<td class="a3"></td></tr>
+		<tr>				<td class="a5"></td>	<td class="a1"></td>	<td class="bg"></td>				<td class="a2"></td>	<td class="a3"></td></tr>
+		<tr>				<td class="a4"></td>	<td class="a1"></td>	<td class="bg"></td>				<td class="a2"></td>	<td class="a3"></td></tr>
 	</table>
 	<br>
 	<table>
 		<tr class="header">	<td>Monday B</td>		<td>Tuesday B</td>		<td>Wednesday B</td>	<td>Thursday B</td>		<td>Friday B</td></tr>
 		<tr>				<td class="a2"></td>	<td class="a4"></td>	<td class="ft"></td>	<td class="a1"></td>	<td class="a5"></td></tr>
 		<tr>				<td class="a2"></td>	<td class="a4"></td>	<td class="a3"></td>	<td class="a1"></td>	<td class="a3"></td></tr>
-		<tr class="p3">		<td class="a4"></td>	<td class="a3"></td>	<td class="a4"></td>	<td class="a3"></td>	<td class="a3"></td></tr>
+		<tr>				<td class="a4"></td>	<td class="a3"></td>	<td class="a4"></td>	<td class="a3"></td>	<td class="a3"></td></tr>
+		<tr class="lunch">	<td></td>				<td></td>				<td></td>				<td></td>				<td></td>			</tr>
 		<tr>				<td class="a4"></td>	<td class="a2"></td>	<td class="a5"></td>	<td class="a3"></td>	<td class="a1"></td></tr>
 		<tr>				<td class="a5"></td>	<td class="a2"></td>	<td class="a5"></td>	<td class="a4"></td>	<td class="a1"></td></tr>
 		<tr class="lunch">	<td></td>				<td></td>				<td></td>				<td></td>				<td></td>			</tr>
 		<tr>				<td class="a5"></td>	<td class="a5"></td>	<td class="a1"></td>	<td class="a2"></td>	<td class="a4"></td></tr>
 		<tr>				<td class="a3"></td>	<td class="a5"></td>	<td class="a1"></td>	<td class="a2"></td>	<td class="a4"></td></tr>
-	</table></center>
+	</table></div></center>
 	<script src="./main.js"></script>
 </body>
 </html>

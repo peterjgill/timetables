@@ -230,28 +230,25 @@ let fill = function () {
 	lessons[9].push(options[3]==="ma"?"CHO 75":options[3]==="ph"?"JC 95":options[3]==="fp"?"MDB 72":options[3]==="bi"?"EKG 58":options[3]==="ch"?"SP 74":options[3]==="ec"?"NB 71":"");
 	lessons[9].push(options[3]==="ad"?"NT 63":options[3]==="bi"?"EKG 58":options[3]==="ma"?"CHO 95":options[3]==="ph"?"RT 61":options[3]==="fp"?"JS 72":options[3]==="bu"?"PD 73":options[3]==="ch"?"PWO 74":options[3]==="ec"?"NB 71":"");
 
-	let els = document.getElementsByTagName("td");
-	let x = -1;
-
 	// fill in the table
-	for (let i = 5; i < 45; i++) {
-		if (i%5 === 0) {
-			x++;
-		}
+	let els = document.getElementsByTagName("td");
+	for (let i = 5; i < 20; i++) {
 		els[i].innerText = lessons[i%5][Math.floor(i/5)-1];
 	}
-	x = -1;
-	for (let i = 50; i < 90; i++) {
-		if (i%5 === 0) {
-			x++;
-		}
-		els[i].innerText = lessons[i%5+5][Math.floor(i/5)-10];
+	for (let i = 25; i < 50; i++) {
+		els[i].innerText = lessons[i%5][Math.floor(i/5)-2];
+	}
+	for (let i = 55; i < 70; i++) {
+		els[i].innerText = lessons[i%5+5][Math.floor(i/5)-11];
+	}
+	for (let i = 75; i < 100; i++) {
+		els[i].innerText = lessons[i%5+5][Math.floor(i/5)-12];
 	}
 
 	// free and ss
 	for (let i = 0; i < els.length; i++) {
-		if((els[i].innerText === "SS" || els[i].innerText === "") && (Math.floor(i/5) !== 6 && Math.floor(i/5) !== 15)) {
-			els[i].style.backgroundColor = "#b7b7b7";
+		if((els[i].innerText === "SS" || els[i].innerText === "") && (![4,7,14,17].includes(Math.floor(i/5)))) {
+			els[i].style.backgroundColor = "var(--bg)";
 		}
 		else {
 			els[i].style.backgroundColor = "";
@@ -261,32 +258,80 @@ let fill = function () {
 	// lunch lessons
 
 	// Monday A
-	if (els[30].innerText !== "") {
-		els[30].style.backgroundColor = "#b9a1ff"; // purple
+	if (els[35].innerText !== "") {
+		els[35].style.backgroundColor = "var(--a1)"; // purple
 	}
 
 	// Tuesday A
-	if (els[31].innerText !== "") {
-		els[31].style.backgroundColor = "#6fa8dc"; // blue
+	if (els[36].innerText !== "") {
+		els[36].style.backgroundColor = "var(--a3)"; // blue
 	}
 
 	// Thursday A
-	if (els[33].innerText !== "") {
-		els[33].style.backgroundColor = "#b9a1ff"; // purple
+	if (els[38].innerText !== "") {
+		els[38].style.backgroundColor = "var(--a1)"; // purple
 	}
 
 	// Tuesday B
-	if (els[76].innerText !== "") {
-		els[76].style.backgroundColor = "#b9a1ff"; // purple
+	if (els[86].innerText !== "") {
+		els[86].style.backgroundColor = "var(--a1)"; // purple
 	}
 
 	// Wednesday B
-	if (els[77].innerText !== "") {
-		els[77].style.backgroundColor = "#ffc832"; // yellow
+	if (els[87].innerText !== "") {
+		els[87].style.backgroundColor = "var(--a2)"; // yellow
 	}
 
 	// Thursday B
-	if (els[78].innerText !== "") {
-		els[78].style.backgroundColor = "#e06666"; // red
+	if (els[88].innerText !== "") {
+		els[88].style.backgroundColor = "var(--a4)"; // red
+	}
+}
+
+document.getElementById("colorselector").ondragstart = function (e) {
+	e.dataTransfer.setData("text", "fill");
+}
+
+document.ondrop = function(e) {
+	if (e.target.id !== "colorselector" && e.target.id !== "textselector") {
+		let variable;
+		let type;
+		if (e.dataTransfer.getData("text") === "fill") {
+			type = "colorselector";
+			if (e.target.tagName !== "TD") {
+				if (e.target.id === "name") {
+					variable = "--name";
+				}
+				else {
+					variable = "--background";
+				}
+			}
+			else {
+				if (e.target.classList[0] === undefined) {
+					variable = "--header";
+				}
+				else if ((e.target.innerText === "SS" || e.target.innerText === "") && (document.getElementById("name").value !== "")) {
+					variable = "--bg";
+				}
+				else {
+					variable = "--"+e.target.classList[0];
+				}
+			}
+		}
+		else {
+			type = "textselector";
+			if (e.target.id === "name") {
+				variable = "--nametext";
+			}
+			else if (e.target.tagName === "TD") {
+				if (e.target.classList[0] === undefined) {
+					variable = "--headertext";
+				}
+				else {
+					variable = "--td";
+				}
+			}
+		}
+		document.documentElement.style.setProperty(variable, document.getElementById(type).value);
 	}
 }
